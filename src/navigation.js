@@ -13,6 +13,9 @@ arrowBtn.addEventListener('click' , () => {
 
 
 
+
+
+
 window.addEventListener('DOMContentLoaded', navigator, false)
 window.addEventListener('hashchange', navigator, false)
 
@@ -82,6 +85,14 @@ function categoriesPage(){
     categoriesPreviewSection.classList.add('inactive');
     genericSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
+
+    const [_, categoryData] = location.hash.split('=');
+    const [categoryID , categoryName] = categoryData.split("-");
+    headerCategoryTitle.innerHTML = categoryName;
+    console.log(categoryID);
+    
+
+    getMoviesByCategory(categoryID);
 
 }
 
